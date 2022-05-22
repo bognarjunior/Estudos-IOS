@@ -6,17 +6,23 @@ import PlaygroundSupport
 
 //: ![Imagem](passo1.png)
 //: Escreva aqui a classe do sapo que será usada.
-
+class Frog {
+    var height: Int = 70
+    var width: Int = 70
+    var xPosition: Int = 100
+    var yPosition: Int = 300
+    var imageNameFrog: String = "forg.png"
+}
 
 
 
 //: ![Imagem](passo2.png)
 //: Crie novos sapos.
-//var frog = Frog()
-
+var frog1 = Frog()
+var frog2 = Frog()
 //: ![Imagem](passo3.png)
 //: Imprima informações de algum sapo criado acima.
-//print(frog.height)
+print(frog1.height)
 
 //: ![Imagem](passo4.png)
 /*
