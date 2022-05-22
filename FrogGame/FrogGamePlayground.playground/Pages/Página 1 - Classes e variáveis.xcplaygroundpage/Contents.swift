@@ -11,7 +11,7 @@ class Frog {
     var width: Int = 70
     var xPosition: Int = 100
     var yPosition: Int = 300
-    var imageNameFrog: String = "forg.png"
+    var imageNameFrog: String = "frog.png"
 }
 
 
@@ -19,32 +19,34 @@ class Frog {
 //: ![Imagem](passo2.png)
 //: Crie novos sapos.
 var frog1 = Frog()
+frog1.xPosition = 300
 var frog2 = Frog()
-//: ![Imagem](passo3.png)
-//: Imprima informações de algum sapo criado acima.
-print(frog1.height)
 
 //: ![Imagem](passo4.png)
-/*
+
  // Interface que apresenta sapo(s) criado(s)
 class MyScreenViewController : UIViewController {
 
     override func viewDidLoad() {
-        //let myFrog1 = Frog()
-        //addFrog(frog: myFrog1)
+        let myFrog1 = Frog()
+        addFrog(frog: myFrog1)
+        
+        let myFrog2 = Frog()
+        myFrog2.xPosition = myFrog1.xPosition + 150
+        addFrog(frog: myFrog2)
     }
 
     func addFrog(frog:Frog){
-        let imageView = UIImageView(image: UIImage(named: frog.nameImageFrog))
-        imageView.frame = CGRect(x: frog.xposition, y: frog.yposition, width: frog.width, height: frog.height)
+        print(frog.imageNameFrog)
+        let imageView = UIImageView(image: UIImage(named: frog.imageNameFrog))
+        imageView.frame = CGRect(x: frog.xPosition, y: frog.yPosition, width: frog.width, height: frog.height)
         view.addSubview(imageView)
     }
 
 }
 
-// Código responsável por instanciar uma insterface e aoresentar no liveView
+// Código responsável por instanciar uma insterface e apresentar no liveView
 var viewController = MyScreenViewController()
 PlaygroundPage.current.liveView = viewController
-*/
 
 //: [Próximo](@next)
