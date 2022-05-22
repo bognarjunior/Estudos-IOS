@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' display-mode='rendered'>
+    <pages>
+        <page name='Página 1 - Classes e variáveis'/>
+        <page name='Página 2 - Inicializadores, Constantes e Optional'/>
+        <page name='Página 3 - Configurando jogo e Herança'/>
+        <page name='Página 4 - Condições (if else)'/>
+        <page name='Página 5 - Loops'/>
+        <page name='Página 6 - Créditos e Referências'/>
+    </pages>
+</playground>
