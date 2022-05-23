@@ -33,7 +33,7 @@ class GameViewController : UIViewController {
     //var myView:UIView!
     
     // Constantes de configuração do jogo
-    let maxPointsToWin = 50
+    let maxPointsToWin = 100
     let messageVictory = "Parabéns, você ganhou!!"
     let messageLose = "Não foi dessa vez. Tente novamente!!"
     let heightScreen = 650
@@ -50,7 +50,7 @@ class GameViewController : UIViewController {
     
     // Função responsável por definir de quanto em quanto tempo o sapo será apresentado e sumirá do usuário
     @objc func creatingFrog(){
-        /*
+        
         if (currentPoints == 50){
             timerFrogVisible = 1.5
             timeIntervalFrogAppears = 1
@@ -59,7 +59,7 @@ class GameViewController : UIViewController {
             timerFrogVisible = 1.0
             timeIntervalFrogAppears = 0.5
         }
-         */
+        
         // Função responsável por apresentar o sapo
         becomeFrogVisible()
         
