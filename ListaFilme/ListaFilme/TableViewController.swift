@@ -9,19 +9,6 @@ import UIKit
 
 class TableViewController: UITableViewController {
     
-    var movies = ["O Senhor dos Anéis: A Sociedade do Anel",
-                  "Senhor dos Anéis: As Duas Torres",
-                  "Senhor dos Anéis: O Retorno do Rei",
-                  "Star Wars: A Nova Esperança",
-                  "Star Wars: O Império Contra-ataca",
-                  "Star Wars: O Retorno de Jedi",
-                  "Star Wars: A Ameaça Fantasma",
-                  "Star Wars: Ataque dos Clones",
-                  "Star Wars: A Vingança dos Sith",
-                  "Star Wars: O Despertar da Força",
-                  "Star Wars: Os Últimos Jedi",
-                  "Star Wars: A Ascensão Skywalker"]
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -41,14 +28,14 @@ class TableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return movies.count
+        return DataMovies.movies.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "listMovies", for: indexPath)
 
         // Configure the cell...
-        cell.textLabel?.text = movies[indexPath.row]
+        cell.textLabel?.text = DataMovies.movies[indexPath.row].name
 
         return cell
     }
