@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--movies-->
         <scene sceneID="Bpw-RL-0xn">
             <objects>
                 <tableViewController id="Saq-yr-ncM" customClass="TableViewController" customModule="ListaFilme" customModuleProvider="target" sceneMemberID="viewController">
@@ -40,11 +40,12 @@
                             <outlet property="delegate" destination="Saq-yr-ncM" id="VBP-PW-wjq"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="movies" image="list.dash" catalog="system" id="dPt-Ae-wQL"/>
                     <navigationItem key="navigationItem" id="sNe-F5-CkL"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UnK-HE-xxG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="443" y="-257"/>
+            <point key="canvasLocation" x="1352.1739130434785" y="-257.14285714285711"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -135,15 +136,60 @@
                     <connections>
                         <outlet property="txtPwd" destination="8oI-Is-izi" id="I4w-tK-rsW"/>
                         <outlet property="txtUser" destination="GfO-xc-J3Q" id="Gy6-SJ-DJa"/>
-                        <segue destination="Saq-yr-ncM" kind="show" identifier="home" id="voY-FC-5r8"/>
+                        <segue destination="GPE-LL-p5A" kind="show" identifier="home" id="voY-FC-5r8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-285.50724637681162" y="-257.14285714285711"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="RfS-Fm-8J2">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="GPE-LL-p5A" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="CXT-BI-USY"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YYT-O8-3bt">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Saq-yr-ncM" kind="relationship" relationship="viewControllers" id="kGj-93-YHe"/>
+                        <segue destination="HEi-dA-hBV" kind="relationship" relationship="viewControllers" id="Mwf-t0-4P0"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TDO-hc-RB4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="442.02898550724643" y="-257.14285714285711"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="yAD-rq-dSi">
+            <objects>
+                <viewController id="HEi-dA-hBV" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fNY-54-Voh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i2N-f3-JrB">
+                                <rect key="frame" x="153" y="270" width="96" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="46"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="c3P-nm-9nL"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="icB-ms-HZP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bok-LJ-SFB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1239" y="404"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="list.dash" catalog="system" width="128" height="85"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
