@@ -14,3 +14,12 @@ print(PI)
 print(name)
 print(isDriver)
 
+let x: Int = 10
+var y: String
+y = String(x)
+print(x)
+
+let z: String = "10"
+var w: Int
+w = Int(z) ?? 0
+print(w)
