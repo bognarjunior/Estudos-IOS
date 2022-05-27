@@ -78,8 +78,64 @@ print(x)
 print(y)
 print(z)
  */
-
+/*
 let user = (name: "Bognar", age: 38)
 let (name, age) = user
 print(name)
 print(age)
+*/
+//Arrays
+var userNames: [String] = ["Bognar", "Carlos", "Francisca"]
+userNames.append("Marcela")
+userNames += ["Steve", "Antônio"]
+print(userNames)
+
+//Slice(copia a referência do array)
+let firstThree = userNames[0...2]
+print(firstThree)
+
+//Cria um novo array
+let firstTwo = Array(userNames[1...2])
+print(firstTwo)
+
+//Número de elementos em um array
+print(userNames.count)
+
+//Verifica se e o array está vazio
+print(userNames.isEmpty)
+
+//Verifica se no array contém aquele elemento
+print(userNames.contains("Maria"))
+print(userNames.contains("Bognar"))
+
+//Pega a primeira posição do array
+print(userNames.first!)
+
+//Insere um elemento na posição do array desejada
+userNames.insert("Anacleto", at: 2)
+print(userNames)
+
+//Remove o elemento da posição desejada
+userNames.remove(at: 2)
+print(userNames)
+
+//Pega a última posição do array
+print(userNames.last!)
+
+//Remove a última posição do array
+userNames.removeLast()
+print(userNames)
+
+//Altera os elementos no range da lista
+//Independente se os elementos forem iguais
+//No caso troquei 3 por 5 elementos
+userNames[1...3] = ["Adamastor", "Oliveira", "Anastasiades", "José", "Alipío"]
+print(userNames)
+
+//Trocar elemento por posição através do índice
+userNames.swapAt(0, 4)
+print(userNames)
+
+//Remover todos os elementos da array
+userNames.removeAll()
+print(userNames)
