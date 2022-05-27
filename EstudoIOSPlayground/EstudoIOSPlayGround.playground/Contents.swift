@@ -1,5 +1,5 @@
 import UIKit
-
+/*
 var message = "Olá Mundo!"
 
 print(message)
@@ -23,3 +23,34 @@ let z: String = "10"
 var w: Int
 w = Int(z) ?? 0
 print(w)
+*/
+
+/*
+var isHungry = false
+
+if isHungry {
+    print("Estou com fome")
+} else {
+    print("Não estou com fome")
+}
+*/
+
+/*
+var product: String
+let company:String = "Apple"
+
+if company == "Google" {
+    product = "Android"
+} else {
+    product = "iPhone"
+}
+
+print(product)
+*/
+
+var product: String
+let company:String = "Apple"
+
+product = company == "Google" ? "Android" : "iPhone"
+
+print(product)
