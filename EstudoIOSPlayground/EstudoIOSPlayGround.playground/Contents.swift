@@ -47,10 +47,39 @@ if company == "Google" {
 
 print(product)
 */
-
+/*
 var product: String
 let company:String = "Apple"
 
 product = company == "Google" ? "Android" : "iPhone"
 
 print(product)
+*/
+
+//Tuplas
+/*
+let coords: (Double, Double) = (34.5, 45.8)
+
+print(coords)
+print(coords.0)
+print(coords.1)
+ */
+/*
+let coords = (lat: 23.25, lgn: 55.13)
+print(coords)
+print(coords.lat)
+print(coords.lgn)
+*/
+
+/*
+let camera = (x:10, y: 20, z:1)
+let (x, y, z) = camera
+print(x)
+print(y)
+print(z)
+ */
+
+let user = (name: "Bognar", age: 38)
+let (name, age) = user
+print(name)
+print(age)
