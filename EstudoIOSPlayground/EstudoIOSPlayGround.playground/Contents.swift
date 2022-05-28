@@ -336,23 +336,41 @@ print(megaSenaGenerator(total: 6))
 print(megaSenaGenerator(total: 15))
 */
 
+//
+////Optional
+//func megaSenaGenerator(total: Int?, maxNumber: Int?) -> Set<Int> {
+//    var numbers: Int = total ?? 6
+//    var result: Set<Int> = []
+//
+//    while(numbers > 0) {
+//        let generated = Int.random(in: 1...maxNumber ?? 60)
+//        let res = result.insert(generated)
+//
+//        if res.inserted {
+//            numbers = numbers - 1
+//        }
+//    }
+//    return result
+//}
+//
+//print(megaSenaGenerator(total: nil, maxNumber: 60))
+//print(megaSenaGenerator(total: 15, maxNumber: 60))
+//
 
-//Optional
-func megaSenaGenerator(total: Int?, maxNumber: Int?) -> Set<Int> {
-    var numbers: Int = total ?? 6
-    var result: Set<Int> = []
-
-    while(numbers > 0) {
-        let generated = Int.random(in: 1...maxNumber ?? 60)
-        let res = result.insert(generated)
-        
-        if res.inserted {
-            numbers = numbers - 1
-        }
-    }
-    return result
+func fetchProductById(id: Int) -> String {
+    let dict = [
+        1: "iPhone",
+        2: "Macbook Pro",
+        3: "Macbook Air",
+        4: "iPad"
+    ]
+//    if let product = dict[id] {
+//        return product
+//    }
+//    return "Nenhum produto encontrado"
+    guard let product = dict[id] else { return "Nenhum produto encontrado" }
+    return product
 }
 
-print(megaSenaGenerator(total: nil, maxNumber: 60))
-print(megaSenaGenerator(total: 15, maxNumber: 60))
-
+print(fetchProductById(id: 1))
+print(fetchProductById(id: 12))
