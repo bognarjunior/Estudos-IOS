@@ -1,4 +1,5 @@
 import UIKit
+import Darwin
 /*
 var message = "Olá Mundo!"
 
@@ -356,21 +357,103 @@ print(megaSenaGenerator(total: 15))
 //print(megaSenaGenerator(total: nil, maxNumber: 60))
 //print(megaSenaGenerator(total: 15, maxNumber: 60))
 //
-
-func fetchProductById(id: Int) -> String {
-    let dict = [
-        1: "iPhone",
-        2: "Macbook Pro",
-        3: "Macbook Air",
-        4: "iPad"
-    ]
-//    if let product = dict[id] {
-//        return product
+//
+//Guard let
+//func fetchProductById(id: Int) -> String {
+//    let dict = [
+//        1: "iPhone",
+//        2: "Macbook Pro",
+//        3: "Macbook Air",
+//        4: "iPad"
+//    ]
+////    if let product = dict[id] {
+////        return product
+////    }
+////    return "Nenhum produto encontrado"
+//    guard let product = dict[id] else { return "Nenhum produto encontrado" }
+//    return product
+//}
+//
+//print(fetchProductById(id: 1))
+//print(fetchProductById(id: 12))
+//
+//
+//// Switch case
+//func discount(productId: Int) -> Double {
+//    switch(productId){
+//    case 1:
+//        return 0.2
+//    case 2:
+//        return 0.4
+//    default:
+//        return 0.0
 //    }
-//    return "Nenhum produto encontrado"
-    guard let product = dict[id] else { return "Nenhum produto encontrado" }
-    return product
+//}
+//
+//let d = discount(productId: 2)
+//print("Desconto: \( Int(d * 100))%")
+//
+//func printProduct(name: String) {
+//    var message: String = ""
+//    switch(name) {
+//    case "iPhone", "iPad":
+//        message = "Produto usando o S.O. IOS"
+//        break
+//    case "Motorola":
+//        message = "Produto usando o S.O. Android"
+//        break
+//    case "Samsung":
+//        message = "Produto usando o S.O. Android"
+//        break
+//    default:
+//        message = "Produto não encontrado"
+//        break
+//    }
+//    print(message)
+//}
+//
+//printProduct(name: "iPhone")
+//printProduct(name: "Samsung")
+//printProduct(name: "BlackBerry")
+//printProduct(name: "iPad")
+//
+////Function Types
+//func sum(x: Int, y: Int) -> Int {
+//    return x + y
+//}
+//
+//func divide(x: Int, y: Int) -> Int {
+//    return x / y
+//}
+//
+//func calc(a: Int, b: Int, operation: (Int, Int) -> Int) {
+//    print("a: \(a)")
+//    print("b: \(b)")
+//    let result = operation(a,b)
+//    print("resultado = \(result)")
+//}
+//
+//calc(a: 5, b: 5, operation: sum(x:y:))
+//calc(a: 10, b: 2, operation: divide(x:y:))
+//
+//// Forma enxuta
+//calc(a: 11, b: 3, operation: { a, b in
+//    a - b
+//})
+//// Forma minimalista(reduzida)
+//calc(a: 9, b: 4) { a, b in
+//    a * b
+//}
+
+func callServer(url: String, callback:(Int) -> ()){
+    let code = 200
+    callback(code)
 }
 
-print(fetchProductById(id: 1))
-print(fetchProductById(id: 12))
+callServer(url: "https://servidor.com"){ code in
+    if code == 200 {
+        print("Servidor ok")
+    } else {
+        print("Não foi possível se conectar")
+    }
+}
