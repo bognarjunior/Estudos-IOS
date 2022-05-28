@@ -145,15 +145,47 @@ print(userNames)
 
 
 //Loop
-var i: Int = 1
+//var i: Int = 1
 /*
 while i < 10 {
     print(i)
     i += 1
 }
  */
-
+/*
 repeat {
     print(i)
     i += 1
 } while (i < 10)
+*/
+/*
+//Range inclusive
+let range = 0...5
+//Range exclusivo
+let r = 0..<5
+print(range)
+*/
+/*
+var limit: Int = 5
+let range = 0...limit
+
+var sum: Int = 0
+var count: Int = 10
+
+for i in 0...count {
+    print(i)
+    sum += i
+}
+print(sum)
+*/
+/*
+//Ignora o indice
+for _ in 0..<10 {
+    print("Olá")
+}
+*/
+var count: Int = 10
+for i in 0...count where i % 2 == 0 {
+    print("\(i) é par")
+}
+
