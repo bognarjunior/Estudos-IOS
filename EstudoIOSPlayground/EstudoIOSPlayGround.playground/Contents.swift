@@ -224,3 +224,73 @@ for i in 0..<dollars.count {
 */
 
 //Dictionary
+/*
+var produtcs: [String:Int] = [:]
+produtcs["Apple"] = 5
+produtcs["Google"] = 10
+produtcs["Samsung"] = 9
+
+print(produtcs)
+*/
+/*
+var products: [Int: String] = [
+    1: "Fone de ouvido",
+    2: "MacBook",
+    3: "Impressora",
+    4: "iPhone"
+]
+
+print(products)
+
+print(products[2]!)
+print(products[12] ?? "Nenhum valor encontrado")
+
+products[2] = "MacBook Air"
+print(products[2]!)
+print(products.isEmpty)
+print(products.count)
+
+//Remover
+products[2] = nil
+print(products)
+
+for key in products.keys {
+    print(key)
+}
+
+for val in products.values {
+    print(val)
+}
+
+for (key, values) in products {
+    print("Chave \(key), valor \(values)")
+}
+*/
+
+// Set
+// Não insere valores repetidos
+var newDict: [Int: String] = [:]
+var newArray: [String] = []
+var newSet: Set<Int> = []
+
+newSet.insert(2)
+newSet.insert(3)
+newSet.insert(5)
+newSet.insert(2)
+newSet.insert(8)
+newSet.insert(2)
+newSet.insert(10)
+
+print(newSet)
+
+var response = newSet.insert(5)
+print(response)
+
+print(newSet.contains(10))
+
+let removed = newSet.remove(10)
+print(removed!)
+print(newSet)
+
+newSet.removeAll()
+print(newSet)
