@@ -266,7 +266,7 @@ for (key, values) in products {
     print("Chave \(key), valor \(values)")
 }
 */
-
+/*
 // Set
 // Não insere valores repetidos
 var newDict: [Int: String] = [:]
@@ -294,3 +294,43 @@ print(newSet)
 
 newSet.removeAll()
 print(newSet)
+*/
+
+// Funções
+//func megaSenaGenerator() -> Set<Int> {
+//    var numbers: Int = 6
+//    var result: Set<Int> = []
+//
+//    while(numbers > 0) {
+//        let generated = Int.random(in: 1...60)
+//        let res = result.insert(generated)
+//
+//        if res.inserted {
+//            numbers = numbers - 1
+//        }
+//    }
+//    return result
+//}
+//
+//for _ in 1...5 {
+//    print(megaSenaGenerator())
+//}
+
+
+func megaSenaGenerator(total: Int) -> Set<Int> {
+    var numbers: Int = total
+    var result: Set<Int> = []
+
+    while(numbers > 0) {
+        let generated = Int.random(in: 1...60)
+        let res = result.insert(generated)
+        
+        if res.inserted {
+            numbers = numbers - 1
+        }
+    }
+    return result
+}
+
+print(megaSenaGenerator(total: 6))
+print(megaSenaGenerator(total: 15))
