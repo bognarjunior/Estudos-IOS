@@ -190,7 +190,7 @@ for i in 0...count where i % 2 == 0 {
     print("\(i) é par")
 }
 */
-
+/*
 let dollars = [5.1, 5.3, 4.9, 5.3, 5.2]
 let days = ["01/02", "02/02", "03/02", "04/02", "05/02"]
 
@@ -201,3 +201,26 @@ for i in 0..<dollars.count where dollars[i] < 5.0{
 for day in days {
     print(day)
 }
+ */
+
+/*
+// Break and Continue
+let dollars = [5.1, 5.3, 4.9, 5.3, 5.2, 5.23]
+let days = ["01/02", "02/02", "03/02", "04/02", "05/02", "06/02"]
+
+for i in 0..<dollars.count {
+    if days[i] == "03/02" {
+        break
+    }
+    print("Valor do dólar no dia \(days[i]) é de \(dollars[i])")
+}
+
+for i in 0..<dollars.count {
+    if days[i] == "03/02" {
+        continue
+    }
+    print("Valor do dólar no dia \(days[i]) é de \(dollars[i])")
+}
+*/
+
+//Dictionary
