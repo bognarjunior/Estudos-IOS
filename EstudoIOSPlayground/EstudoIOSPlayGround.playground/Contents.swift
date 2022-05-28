@@ -84,6 +84,8 @@ let (name, age) = user
 print(name)
 print(age)
 */
+
+/*
 //Arrays
 var userNames: [String] = ["Bognar", "Carlos", "Francisca"]
 userNames.append("Marcela")
@@ -139,3 +141,19 @@ print(userNames)
 //Remover todos os elementos da array
 userNames.removeAll()
 print(userNames)
+*/
+
+
+//Loop
+var i: Int = 1
+/*
+while i < 10 {
+    print(i)
+    i += 1
+}
+ */
+
+repeat {
+    print(i)
+    i += 1
+} while (i < 10)
