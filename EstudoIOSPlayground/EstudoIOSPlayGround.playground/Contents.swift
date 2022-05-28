@@ -316,7 +316,7 @@ print(newSet)
 //    print(megaSenaGenerator())
 //}
 
-
+/*
 func megaSenaGenerator(total: Int) -> Set<Int> {
     var numbers: Int = total
     var result: Set<Int> = []
@@ -334,3 +334,25 @@ func megaSenaGenerator(total: Int) -> Set<Int> {
 
 print(megaSenaGenerator(total: 6))
 print(megaSenaGenerator(total: 15))
+*/
+
+
+//Optional
+func megaSenaGenerator(total: Int?, maxNumber: Int?) -> Set<Int> {
+    var numbers: Int = total ?? 6
+    var result: Set<Int> = []
+
+    while(numbers > 0) {
+        let generated = Int.random(in: 1...maxNumber ?? 60)
+        let res = result.insert(generated)
+        
+        if res.inserted {
+            numbers = numbers - 1
+        }
+    }
+    return result
+}
+
+print(megaSenaGenerator(total: nil, maxNumber: 60))
+print(megaSenaGenerator(total: 15, maxNumber: 60))
+
