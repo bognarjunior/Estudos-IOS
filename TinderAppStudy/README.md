@@ -8,5 +8,5 @@
 6. Consulta de dados
 
 ## iOS 13 & Swift 5 - Recriando o Tinder 2020
-![Curso gratuito na Udemi](https://www.udemy.com/course/ios-13-swift-5-recriando-o-tinder-2020/)
+[Curso gratuito na Udemi](https://www.udemy.com/course/ios-13-swift-5-recriando-o-tinder-2020/)
 
