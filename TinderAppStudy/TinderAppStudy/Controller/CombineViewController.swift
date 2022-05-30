@@ -34,6 +34,24 @@ class CombineViewController: UIViewController {
 
 extension CombineViewController {
     @objc func handlerCard(gesture: UIPanGestureRecognizer){
-        print("handlerCard")
+        //Atribui a view para a variável
+        if let card = gesture.view {
+            //Atribui a variável o ponto onde o usuário está arrastando
+            let point = gesture.translation(in: view)
+            //Atribui para a view novos valores de x e y baseados onde o usuário está arrastando
+            card.center = CGPoint(x: view.center.x + point.x, y: view.center.y + point.y)
+            
+            //Testa se o movimento acabou
+            if gesture.state == .ended {
+                
+                //Cria uma animação para o movimento ser mais suave quando voltar para a origem
+                UIView.animate(withDuration: 0.5) {
+                    //Atribui para o card a posição inicial no centro
+                    card.center = self.view.center
+                }
+                
+            }
+        }
+        
     }
 }
