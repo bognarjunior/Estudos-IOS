@@ -24,11 +24,9 @@ extension CombineViewController{
         // Cria um loop para adicionar mais cards na tela
         for item in 1...3 {
             //Cria uma nova view
-            let card = UIView()
-            //Adiciona cor para a view
-            card.backgroundColor = item == 2 ? .blue : .red
+            let card = CombineCardView()
             //Adiciona o tamanho e o posicionamento para a view
-            card.frame = CGRect(x: 0, y: 0, width: 200, height: 300)
+            card.frame = CGRect(x: 0, y: 0, width: view.bounds.width - 32, height: view.bounds.height * 0.7)
             //Centralixando o card
             card.center = view.center
             // Cria a função para reconhecer os gestos e passa a referencia para ela
