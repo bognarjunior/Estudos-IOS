@@ -42,6 +42,10 @@ extension CombineViewController{
             let card = CombineCardView()
             //Adiciona o tamanho e o posicionamento para a view
             card.frame = CGRect(x: 0, y: 0, width: view.bounds.width - 32, height: view.bounds.height * 0.7)
+            //Atribui para o usuário do card o nosso usuário selecionado
+            card.user = user
+            //Atribui para o identificador único do card o id do usuário
+            card.tag = user.id
             //Centralixando o card
             card.center = view.center
             // Cria a função para reconhecer os gestos e passa a referencia para ela
@@ -50,7 +54,7 @@ extension CombineViewController{
             //Adidiona a referência da função para o card
             card.addGestureRecognizer(gesture)
             //Adiciona a view na tela(dentro de outra view)
-            view.addSubview(card)
+            view.insertSubview(card, at: 0)
         }
         
         

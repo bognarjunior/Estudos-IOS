@@ -8,6 +8,20 @@
 import UIKit
 
 class CombineCardView: UIView {
+    //Cria uma variável de usuários
+    var user: User? {
+        //Testa quando o usuário for atribuído
+        didSet{
+            //Valida se a variável tem valor
+            if let user = user {
+                //Atribui valores as variáveis
+                nameLabel.text = user.name
+                ageLabel.text = String(user.age)
+                descriptionLabel.text = user.description
+                pictureImageView.image = UIImage(named: user.picture)
+            }
+        }
+    }
     //Cria uma view de imagem para adicionar a foto
     var pictureImageView: UIImageView = {
         //Cria uma variável para a imagem
@@ -41,11 +55,6 @@ class CombineCardView: UIView {
         addSubview(pictureImageView)
         //Ajusta a imagem
         pictureImageView.fillSuperview()
-        
-        //Atribui valores as variáveis
-        nameLabel.text = "Ana Laura"
-        ageLabel.text = "20"
-        descriptionLabel.text = "Quem se define se limita, uma pessoa com vários blá, blá, blá"
         
         //Adiciona a sombra as variáveis
         nameLabel.addShadow()
