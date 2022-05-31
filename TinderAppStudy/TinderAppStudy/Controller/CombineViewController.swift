@@ -8,13 +8,28 @@
 import UIKit
 
 class CombineViewController: UIViewController {
+    
+    // Cria uma variável para atribuir os usuários
+    var users:[User] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Adiciona cor no background da view
         view.backgroundColor = UIColor.systemBackground
         
-        self.addCard()
+        self.getUsers()
+    }
+    
+    func getUsers() {
+        UserService.shared.gerUsets { (users, err) in
+            if let users = users {
+                DispatchQueue.main.async {
+                    self.users = users
+                    self.addCard()
+                }
+            }
+        }
     }
 }
 
@@ -22,7 +37,7 @@ extension CombineViewController{
     func addCard() {
         
         // Cria um loop para adicionar mais cards na tela
-        for item in 1...3 {
+        for user in users {
             //Cria uma nova view
             let card = CombineCardView()
             //Adiciona o tamanho e o posicionamento para a view
