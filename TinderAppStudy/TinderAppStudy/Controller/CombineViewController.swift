@@ -17,15 +17,21 @@ class CombineViewController: UIViewController {
         
         //Adiciona cor no background da view
         view.backgroundColor = UIColor.systemBackground
-        
+        //Chama a função para pegar usuários
         self.getUsers()
     }
     
+    //Função que retorna os usuários
     func getUsers() {
+        //Busca os usuários do service
         UserService.shared.gerUsets { (users, err) in
+            //Verifica se a variável está preenchida
             if let users = users {
+                //Função assincrona para carregar os usiários
                 DispatchQueue.main.async {
+                    //Atribui para os usuários para a variável dentro do controler
                     self.users = users
+                    //Chama a função para adicionar o card
                     self.addCard()
                 }
             }
@@ -63,14 +69,26 @@ extension CombineViewController{
 
 extension CombineViewController {
     @objc func handlerCard(gesture: UIPanGestureRecognizer){
-        //Atribui a view para a variável
-        if let card = gesture.view {
+        //Atribui a view para a variável e informa que ela é do tipo combine cardview
+        if let card = gesture.view as? CombineCardView {
             //Atribui a variável o ponto onde o usuário está arrastando
             let point = gesture.translation(in: view)
             //Atribui para a view novos valores de x e y baseados onde o usuário está arrastando
             card.center = CGPoint(x: view.center.x + point.x, y: view.center.y + point.y)
             //Atribui para a variável o valor que está arrastando para fazer a rotação
             let rotationAngle = point.x / view.bounds.width * 0.4
+            
+            //Verifica se a posição do x é maior que 0
+            if point.x > 0 {
+                //Atribui novos valores para alpha
+                card.likeImageView.alpha = rotationAngle * 5
+                card.deslikeImageView.alpha = 0
+            } else {
+                //Atribui novos valores para alpha
+                card.likeImageView.alpha = 0
+                card.deslikeImageView.alpha = rotationAngle * 5 * -1
+            }
+            
             //Aplica no card a rotação
             card.transform = CGAffineTransform(rotationAngle: rotationAngle)
             //Testa se o movimento acabou
@@ -82,6 +100,9 @@ extension CombineViewController {
                     card.center = self.view.center
                     //Volta a transformação para a posição de origem
                     card.transform = .identity
+                    //Volta os valores para 0
+                    card.likeImageView.alpha = 0
+                    card.deslikeImageView.alpha = 0
                 }
                 
             }

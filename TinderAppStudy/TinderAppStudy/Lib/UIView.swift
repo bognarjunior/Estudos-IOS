@@ -90,5 +90,21 @@ extension UIView {
             heightAnchor.constraint(equalToConstant: size.height).isActive = true
         }
     }
+    
+    func size(size: CGSize = .zero) {
+        //Seta o valor de constraints automático para falso,
+        //assim podemos criar as constraints via código
+        translatesAutoresizingMaskIntoConstraints = false
+        //Verifica se size width é diferente de zero
+        if size.width != 0 {
+            //Atribui para o size width os valores passados por parâmetro e ativa a constraint
+            widthAnchor.constraint(equalToConstant: size.width).isActive = true
+        }
+        //Verifica se size height é diferente de zero
+        if size.height != 0 {
+            //Atribui para o size height os valores passados por parâmetro e ativa a constraint
+            heightAnchor.constraint(equalToConstant: size.height).isActive = true
+        }
+    }
 }
 

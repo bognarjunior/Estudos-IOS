@@ -23,22 +23,16 @@ class CombineCardView: UIView {
         }
     }
     //Cria uma view de imagem para adicionar a foto
-    var pictureImageView: UIImageView = {
-        //Cria uma variável para a imagem
-        let imageView = UIImageView()
-        //Atribui a imagem
-        imageView.image = UIImage(named: "pessoa-1")
-        //Trata a imagem para ela não ficar esticada
-        imageView.contentMode = .scaleAspectFill
-        //Corta a imagem caso ela seja maior que o card
-        imageView.clipsToBounds = true
-        // retorna a imagem criada
-        return imageView
-    }()
-    //Cria um label para adicionar na tela
+    var pictureImageView: UIImageView = .pictureImageView()
+    
+    //Cria as variáveis e formata os labels
     var nameLabel: UILabel = .textBoldLabel(32, textColor: .white)
     var ageLabel: UILabel = .textLabel(28, textColor: .white)
     var descriptionLabel: UILabel = .textLabel(18, textColor: .white, numberOfLines: 3)
+    
+    var deslikeImageView: UIImageView = .iconCard(named: "card-deslike")
+    var likeImageView: UIImageView = .iconCard(named: "card-like")
+        
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -53,6 +47,25 @@ class CombineCardView: UIView {
         clipsToBounds = true
         //Atribui a imagem para a view
         addSubview(pictureImageView)
+        
+        //Adiciona na view o deslike
+        addSubview(deslikeImageView)
+        deslikeImageView.fill(
+            top: topAnchor,
+            leading: nil,
+            trailing: trailingAnchor,
+            bottom: nil,
+            padding: .init(top: 20, left: 0, bottom: 0, right: 20))
+        
+        //Adiciona na view a imagem de like
+        addSubview(likeImageView)
+        likeImageView.fill(
+            top: topAnchor,
+            leading: leadingAnchor,
+            trailing: nil,
+            bottom: nil,
+            padding: .init(top: 20, left: 20, bottom: 0, right: 0))
+        
         //Ajusta a imagem
         pictureImageView.fillSuperview()
         
