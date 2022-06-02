@@ -12,11 +12,26 @@ class CombineViewController: UIViewController {
     // Cria uma variável para atribuir os usuários
     var users:[User] = []
     
+    //Crian do os botões do header
+    var perfilButton: UIButton = .iconHeader(named: "icone-perfil")
+    var logoButton: UIButton = .iconHeader(named: "icone-logo")
+    var chatButton: UIButton = .iconHeader(named: "icone-chat")
+    
+    //Crian do os botões do footer
+    var deslikeButton: UIButton = .iconFooter(named: "deslikeButton")
+    var likeButton: UIButton = .iconFooter(named: "likeButton")
+    var superLikeButton: UIButton = .iconFooter(named: "superLikeButton")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //Esconde a barra de navegação
+        navigationController?.navigationBar.isHidden = true
         //Adiciona cor no background da view
-        view.backgroundColor = UIColor.systemBackground
+        view.backgroundColor = UIColor.systemGroupedBackground
+        //Chama a função para adicionar o header
+        self.addHeader()
+        //Chama a função para adicionar o footer
+        self.addFooter()
         //Chama a função para pegar usuários
         self.getUsers()
     }
@@ -39,9 +54,64 @@ class CombineViewController: UIViewController {
     }
 }
 
-extension CombineViewController{
-    func addCard() {
+extension CombineViewController {
+    //Função para adicionar os buttons no header da view
+    func addHeader() {
+        //Função para pegar a safeArea no iPhone x e superiores
+        let window = UIApplication.shared.connectedScenes
+            .map({ $0 as? UIWindowScene })
+            .compactMap({ $0 })
+            .first?.windows.first
+        let statusBar = window?.windowScene?.statusBarManager?.statusBarFrame
+                
+        //Adiciona o valor do safeArea para uma variável
+        let top: CGFloat = statusBar?.size.height ?? 44.0
+        print(top)
         
+        // Cria uma stackView para adicionar e formatar os icones do footer
+        let stackView = UIStackView(arrangedSubviews: [
+            perfilButton,
+            logoButton,
+            chatButton,
+        ])
+        //Distribui a stackview de forma igual centralizada
+        stackView.distribution = .equalCentering
+        view.addSubview(stackView)
+        stackView.fill(
+            top: view.topAnchor,
+            leading: view.leadingAnchor,
+            trailing: view.trailingAnchor,
+            bottom: nil,
+            padding: .init(top: top, left: 16, bottom: 0, right: 16))
+    }
+    
+    
+    //Função para adicionar os buttons no footer da view
+    func addFooter() {
+        // Cria uma stackView para adicionar e formatar os icones do footer
+        let stackView = UIStackView(arrangedSubviews: [
+            UIView(),
+            deslikeButton,
+            superLikeButton,
+            likeButton,
+            UIView()
+        ])
+        //Distribui a stackview de forma igual centralizada
+        stackView.distribution = .equalCentering
+        //Adiciona a view na tela(dentro de outra view)
+        view.addSubview(stackView)
+        stackView.fill(
+            top: nil,
+            leading: view.leadingAnchor,
+            trailing: view.trailingAnchor,
+            bottom: view.bottomAnchor,
+            padding: .init(top: 0, left: 16, bottom: 34, right: 16))
+    }
+}
+
+extension CombineViewController {
+    //Função para adicionar o card na view
+    func addCard() {
         // Cria um loop para adicionar mais cards na tela
         for user in users {
             //Cria uma nova view
