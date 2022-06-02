@@ -7,6 +7,10 @@
 
 import UIKit
 
+enum ACTION {
+    case DESLIKE
+    case LIKE
+}
 class CombineViewController: UIViewController {
     
     // Cria uma variável para atribuir os usuários
@@ -66,7 +70,6 @@ extension CombineViewController {
                 
         //Adiciona o valor do safeArea para uma variável
         let top: CGFloat = statusBar?.size.height ?? 44.0
-        print(top)
         
         // Cria uma stackView para adicionar e formatar os icones do footer
         let stackView = UIStackView(arrangedSubviews: [
@@ -135,6 +138,15 @@ extension CombineViewController {
         
         
     }
+    //Função para remover o card da view
+    func removeCard(card: UIView) {
+        //Remove o card
+        card.removeFromSuperview()
+        //Remove o usuário da lista de usuários
+        self.users = self.users.filter({(user) -> Bool in
+            return user.id != card.tag
+        })
+    }
 }
 
 extension CombineViewController {
@@ -161,8 +173,22 @@ extension CombineViewController {
             
             //Aplica no card a rotação
             card.transform = CGAffineTransform(rotationAngle: rotationAngle)
+            
             //Testa se o movimento acabou
             if gesture.state == .ended {
+                //Testa se o x do card é maior que o tamanho da tela + 50 para dar o like
+                if card.center.x > self.view.bounds.width + 50 {
+                    //Chama a função de animação do card passando o angulo e a ação como parâmetros
+                    self.animateCard(rotationAngle: rotationAngle, action: ACTION.LIKE)
+                    return
+                }
+                
+                //Testa se o x do card é menor que -50 para dar deslike
+                if card.center.x < -50 {
+                    //Chama a função de animação do card passando o angulo e a ação como parâmetros
+                    self.animateCard(rotationAngle: rotationAngle, action: ACTION.DESLIKE)
+                    return
+                }
                 
                 //Cria uma animação para o movimento ser mais suave quando voltar para a origem
                 UIView.animate(withDuration: 0.5) {
@@ -178,5 +204,40 @@ extension CombineViewController {
             }
         }
         
+    }
+    
+    func animateCard(rotationAngle: CGFloat, action: ACTION) {
+        //Pega o usuário que está sendo apresentado em tela
+        if let user = self.users.first {
+            //Percore todas as view da view principal
+            for view in self.view.subviews {
+                //Compara se o tag da view é igual ao usuário id
+                if view.tag == user.id {
+                    //Adiciona uma variável card para fazer a exclusão e os tratamentos
+                    if let card = view as? CombineCardView {
+                        //Cria uma váriavel para atribuir o valor do centro
+                        var center: CGPoint
+                        //Testa qual a ação e atribui valor a variável center
+                        switch action {
+                        case .DESLIKE:
+                            center = CGPoint(x: card.center.x - self.view.bounds.width, y: card.center.y + 50)
+                        case .LIKE:
+                            center = CGPoint(x: card.center.x, y: card.center.y + 50)
+                        }
+                        //Anima a view
+                        UIView.animate(withDuration: 0.2, animations: {
+                            //Atribui valores para o card
+                            card.center = center
+                            card.transform = CGAffineTransform(rotationAngle: rotationAngle)
+                        }){ (_) in
+                            self.removeCard(card: card)
+                        }
+                            
+                        
+                    }
+                }
+            }
+        }
+            
     }
 }
