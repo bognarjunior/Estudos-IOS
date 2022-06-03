@@ -177,7 +177,8 @@ class UserService {
     
     //Função que retorna o usuário
     func getUsers (completion: @escaping ([User]?, Error?) -> ()) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.0) {
+        //Função para simular o delay do banco de dados
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             completion(self.users, nil)
         }
     }
