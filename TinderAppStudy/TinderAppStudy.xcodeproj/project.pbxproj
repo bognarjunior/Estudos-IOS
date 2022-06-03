@@ -21,6 +21,7 @@
 		7C1804E9284595A1001913D6 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1804E8284595A1001913D6 /* UserService.swift */; };
 		7C1804EB2846DFD9001913D6 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1804EA2846DFD9001913D6 /* UIImageView.swift */; };
 		7C1804ED28483353001913D6 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1804EC28483353001913D6 /* UIButton.swift */; };
+		7CF9B8AE2849924A008ADA60 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF9B8AD2849924A008ADA60 /* LoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		7C1804E8284595A1001913D6 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		7C1804EA2846DFD9001913D6 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		7C1804EC28483353001913D6 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		7CF9B8AD2849924A008ADA60 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				7C1804E028445215001913D6 /* CombineCardView.swift */,
+				7CF9B8AD2849924A008ADA60 /* LoadingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				7C1804C42843FEA0001913D6 /* AppDelegate.swift in Sources */,
 				7C1804E9284595A1001913D6 /* UserService.swift in Sources */,
 				7C1804E528458845001913D6 /* UILabel.swift in Sources */,
+				7CF9B8AE2849924A008ADA60 /* LoadingView.swift in Sources */,
 				7C1804E128445215001913D6 /* CombineCardView.swift in Sources */,
 				7C1804E7284592C6001913D6 /* User.swift in Sources */,
 				7C1804EB2846DFD9001913D6 /* UIImageView.swift in Sources */,

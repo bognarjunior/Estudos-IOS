@@ -33,12 +33,16 @@ class CombineViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
         //Adiciona cor no background da view
         view.backgroundColor = UIColor.systemGroupedBackground
+        //Cria uma variável para adicionar o loading
+        let loading = LoadingView(frame: view.frame)
+        //Insere o loading na view
+        view.insertSubview(loading, at: 0)
         //Chama a função para adicionar o header
         self.addHeader()
         //Chama a função para adicionar o footer
         self.addFooter()
         //Chama a função para pegar usuários
-        self.getUsers()
+        //self.getUsers()
     }
     
     //Função que retorna os usuários
@@ -148,7 +152,7 @@ extension CombineViewController {
             //Adidiona a referência da função para o card
             card.addGestureRecognizer(gesture)
             //Adiciona a view na tela(dentro de outra view)
-            view.insertSubview(card, at: 0)
+            view.insertSubview(card, at: 1)
         }
         
         
