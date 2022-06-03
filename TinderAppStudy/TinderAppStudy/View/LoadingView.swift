@@ -26,6 +26,25 @@ class LoadingView: UIView {
         //Retorna a variável tratada
         return load
     }()
+    //Cria a imagem do perfil
+    let perfilImageView: UIImageView = {
+        //Cria a variável para trabalhar com a imagem
+        let imagem = UIImageView()
+        //Atribui o tamanho da imagem
+        imagem.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        //Adiciona bordas arredondadas
+        imagem.layer.cornerRadius = 50
+        //Atribui o tamanho da borda
+        imagem.layer.borderWidth = 5
+        //Atribui a cor da borda
+        imagem.layer.borderColor = UIColor.white.cgColor
+        //Permite cortar a imagem se for maior que a view
+        imagem.clipsToBounds = true
+        //Atribui qual é a imagem que será selecionada
+        imagem.image = UIImage(named: "perfil")
+        //Retorna a imagem tratada
+        return imagem
+    }()
     
     func animatedLoad() {
         //Cria uma animação
@@ -50,16 +69,21 @@ class LoadingView: UIView {
             self.loadView.alpha = 1
             //Chama a animação
             self.animatedLoad()
-    }
+        }
       
-}
-    
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        //Adiciona a view ao pai
         addSubview(loadView)
+        //Atribui o valor da view para o centro
         loadView.center = center
+        //Adiciona a imagem do perfil ao pai
+        addSubview(perfilImageView)
+        //Atribui a imagem ao centro
+        perfilImageView.center = center
+        //Chama a função de animação
         self.animatedLoad()
     }
     
