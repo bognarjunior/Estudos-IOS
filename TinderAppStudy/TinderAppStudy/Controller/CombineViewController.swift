@@ -10,6 +10,7 @@ import UIKit
 enum ACTION {
     case DESLIKE
     case LIKE
+    case SUPERLIKE
 }
 class CombineViewController: UIViewController {
     
@@ -88,7 +89,6 @@ extension CombineViewController {
             padding: .init(top: top, left: 16, bottom: 0, right: 16))
     }
     
-    
     //Função para adicionar os buttons no footer da view
     func addFooter() {
         // Cria uma stackView para adicionar e formatar os icones do footer
@@ -108,8 +108,23 @@ extension CombineViewController {
             leading: view.leadingAnchor,
             trailing: view.trailingAnchor,
             bottom: view.bottomAnchor,
-            padding: .init(top: 0, left: 16, bottom: 34, right: 16))
+            padding: .init(top: 0, left: 16, bottom: 34, right: 16)
+        )
+        
+        //Adicionando ação nos botões
+        deslikeButton.addTarget(self, action: #selector(deslikeClick), for: .touchUpInside)
+        likeButton.addTarget(self, action: #selector(likeClick), for: .touchUpInside)
+        superLikeButton.addTarget(self, action: #selector(superlikeClick), for: .touchUpInside)
     }
+    
+    //Função para verificar o match
+    func isMatch(user: User) {
+        //Verifica se o usuário deu match
+        if user.match{
+            print("It's Match \(user.name)")
+        }
+    }
+    
 }
 
 extension CombineViewController {
@@ -205,6 +220,20 @@ extension CombineViewController {
         }
         
     }
+    //Função de deslike
+    @objc func deslikeClick() {
+        self.animateCard(rotationAngle: -0.4, action: ACTION.DESLIKE)
+    }
+    
+    //Função de like
+    @objc func likeClick() {
+        self.animateCard(rotationAngle: 0.4, action: ACTION.LIKE)
+    }
+    
+    //Função de superlike
+    @objc func superlikeClick() {
+        self.animateCard(rotationAngle: 0, action: ACTION.SUPERLIKE)
+    }
     
     func animateCard(rotationAngle: CGFloat, action: ACTION) {
         //Pega o usuário que está sendo apresentado em tela
@@ -217,23 +246,39 @@ extension CombineViewController {
                     if let card = view as? CombineCardView {
                         //Cria uma váriavel para atribuir o valor do centro
                         var center: CGPoint
+                        //Cria uma variável para verificar se é like ou deslike
+                        var like: Bool
                         //Testa qual a ação e atribui valor a variável center
                         switch action {
                         case .DESLIKE:
                             center = CGPoint(x: card.center.x - self.view.bounds.width, y: card.center.y + 50)
+                            like = false
                         case .LIKE:
-                            center = CGPoint(x: card.center.x, y: card.center.y + 50)
+                            center = CGPoint(x: card.center.x + self.view.bounds.width, y: card.center.y + 50)
+                            like = true
+                        case .SUPERLIKE:
+                            center = CGPoint(x: card.center.x, y: card.center.y - self.view.bounds.height)
+                            like = true
                         }
+                        
+                        //Verifica se tu deu match
+                        if like {
+                            //Chama a função passando o usuário como parâmetro
+                            self.isMatch(user: user)
+                        }
+                        
                         //Anima a view
-                        UIView.animate(withDuration: 0.2, animations: {
+                        UIView.animate(withDuration: 0.5, animations: {
                             //Atribui valores para o card
                             card.center = center
                             card.transform = CGAffineTransform(rotationAngle: rotationAngle)
+                            
+                            //Atribui alpha para a imagem aparecer ou não
+                            card.deslikeImageView.alpha = like == false ? 1 : 0
+                            card.likeImageView.alpha = like == true ? 1 : 0
                         }){ (_) in
                             self.removeCard(card: card)
                         }
-                            
-                        
                     }
                 }
             }
