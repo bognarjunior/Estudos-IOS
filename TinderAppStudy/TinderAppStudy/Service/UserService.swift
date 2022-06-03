@@ -176,7 +176,7 @@ class UserService {
     ]
     
     //Função que retorna o usuário
-    func gerUsets (completion: @escaping ([User]?, Error?) -> ()) {
+    func getUsers (completion: @escaping ([User]?, Error?) -> ()) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.0) {
             completion(self.users, nil)
         }

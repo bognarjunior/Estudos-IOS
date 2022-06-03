@@ -42,13 +42,13 @@ class CombineViewController: UIViewController {
         //Chama a função para adicionar o footer
         self.addFooter()
         //Chama a função para pegar usuários
-        //self.getUsers()
+        self.getUsers()
     }
     
     //Função que retorna os usuários
     func getUsers() {
         //Busca os usuários do service
-        UserService.shared.gerUsets { (users, err) in
+        UserService.shared.getUsers { (users, err) in
             //Verifica se a variável está preenchida
             if let users = users {
                 //Função assincrona para carregar os usiários
