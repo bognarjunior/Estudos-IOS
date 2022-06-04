@@ -22,6 +22,7 @@
 		7C1804EB2846DFD9001913D6 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1804EA2846DFD9001913D6 /* UIImageView.swift */; };
 		7C1804ED28483353001913D6 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1804EC28483353001913D6 /* UIButton.swift */; };
 		7CF9B8AE2849924A008ADA60 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF9B8AD2849924A008ADA60 /* LoadingView.swift */; };
+		7CF9B8B0284A910C008ADA60 /* MatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF9B8AF284A910C008ADA60 /* MatchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		7C1804EA2846DFD9001913D6 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		7C1804EC28483353001913D6 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		7CF9B8AD2849924A008ADA60 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		7CF9B8AF284A910C008ADA60 /* MatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				7C1804DE28440C07001913D6 /* CombineViewController.swift */,
+				7CF9B8AF284A910C008ADA60 /* MatchViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CF9B8B0284A910C008ADA60 /* MatchViewController.swift in Sources */,
 				7C1804C42843FEA0001913D6 /* AppDelegate.swift in Sources */,
 				7C1804E9284595A1001913D6 /* UserService.swift in Sources */,
 				7C1804E528458845001913D6 /* UILabel.swift in Sources */,

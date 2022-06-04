@@ -125,7 +125,13 @@ extension CombineViewController {
     func isMatch(user: User) {
         //Verifica se o usuário deu match
         if user.match{
-            print("It's Match \(user.name)")
+            
+            //Criando modal de match
+            let MatchViewController = MatchViewController()
+            //Atribui para o modal a apresentação full screen, ou seja, o modal cobre a tela toda
+            MatchViewController.modalPresentationStyle = .fullScreen
+            //Abre o modal de match
+            self.present(MatchViewController, animated: true, completion: nil)
         }
     }
     
