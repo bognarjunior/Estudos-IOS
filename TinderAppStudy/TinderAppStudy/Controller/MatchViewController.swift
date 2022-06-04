@@ -8,6 +8,17 @@
 import UIKit
 
 class MatchViewController: UIViewController {
+    //Cria uma variável para receber os usuários
+    var user: User? {
+        //Verifica se ele foi setado
+        didSet{
+            //Testa se tem usuário
+            if let user = user {
+                pictureImageView.image = UIImage(named: user.picture)
+                messageLabel.text = "\(user.name) curtiu você também"
+            }
+        }
+    }
     
     //Cria uma variável para receber a imagem
     let pictureImageView: UIImageView = .pictureImageView(named: "pessoa-1")
@@ -84,8 +95,16 @@ class MatchViewController: UIViewController {
         //Posiciona a imagem para ocupar toda a view
         pictureImageView.fillSuperview()
         
-        //Adiciona texto a mensagem
-        messageLabel.text = "It's a Match!!!"
+        //Cria uma função para o gradiente da tela
+        let gradiente =  CAGradientLayer()
+        //Atribui valor para o frame do gradiente
+        gradiente.frame = view.frame
+        //Atribui cores ao gradiente
+        gradiente.colors = [UIColor.clear.cgColor, UIColor.clear.cgColor, UIColor.black.cgColor]
+        
+        //Adiciona o gradiente a foto
+        pictureImageView.layer.addSublayer(gradiente)
+        
         //Centralizar o texto
         messageLabel.textAlignment = .center
         
@@ -95,6 +114,9 @@ class MatchViewController: UIViewController {
         likeImageView.heightAnchor.constraint(equalToConstant: 44).isActive = true
         //Seta a imagem para manter a proporção
         likeImageView.contentMode = .scaleAspectFit
+        
+        //Adiciona ação ao botão
+        backButton.addTarget(self, action: #selector(backToHome), for: .touchUpInside)
         
         //Adiciona o botão no dentro da caixa de texto
         messageText.addSubview(messageButton)
@@ -126,6 +148,9 @@ class MatchViewController: UIViewController {
             bottom: view.bottomAnchor,
             padding: .init(top: 0, left: 32, bottom: 46, right: 32)
         )
-        
+    }
+    
+    @objc func backToHome() {
+        self.dismiss(animated: true, completion: nil)
     }
 }

@@ -128,6 +128,9 @@ extension CombineViewController {
             
             //Criando modal de match
             let MatchViewController = MatchViewController()
+            //Atribui para a view de match o usuário que deu like
+            MatchViewController.user = user
+            
             //Atribui para o modal a apresentação full screen, ou seja, o modal cobre a tela toda
             MatchViewController.modalPresentationStyle = .fullScreen
             //Abre o modal de match
