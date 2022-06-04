@@ -89,6 +89,21 @@ class MatchViewController: UIViewController {
     }()
     
     override func viewDidLoad() {
+        
+        //Cria um observable para quando abrir o teclado
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyBoardShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil)
+        
+        //Cria um observable para quando fechar o teclado
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyBoardHide),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil)
+        
         super.viewDidLoad()
         //Adiciona a imagem na view
         view.addSubview(pictureImageView)
@@ -151,6 +166,47 @@ class MatchViewController: UIViewController {
     }
     
     @objc func backToHome() {
+        //Fecha o modal
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func keyBoardShow(notification: NSNotification) {
+        //Pega o tamanho do teclado quando ele for aberto na tela
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            //Tempo de demora do teclado para abrir
+            if let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double {
+                //Criando a animação da view
+                UIView.animate(withDuration: duration) {
+                    //Alterando o frame da view principal
+                    self.view.frame = CGRect(
+                        x: self.view.frame.origin.x,
+                        y: self.view.frame.origin.x,
+                        width: self.view.frame.width,
+                        height: self.view.frame.height - keyboardSize.height
+                    )
+                    //Função para redefinir o layout
+                    self.view.layoutIfNeeded()
+                }
+            }
+        }
+    }
+    
+    @objc func keyBoardHide(notification: NSNotification) {
+        //Tempo de demora do teclado para abrir
+        if let duration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double {
+            //Criando a animação da view
+            UIView.animate(withDuration: duration) {
+                //Volta ao tamanho original
+                self.view.frame = UIScreen.main.bounds
+                //Função para redefinir o layout
+                self.view.layoutIfNeeded()
+            }
+        }
+    }
+    
+    //Subscrever a função responsável pelo toque na tela
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        //Esconde o teclado quando o usuário clicar na tela
+        view.endEditing(true)
     }
 }
