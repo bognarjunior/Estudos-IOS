@@ -185,9 +185,11 @@ extension CombineViewController {
     
     //Função para visializar o detalhe do usuário
     func viewDetail(user: User) {
-        let detailViewController = UIViewController()
-        detailViewController.view.backgroundColor = .red
+        //Atritui o modal
+        let detailViewController = DetailViewController()
+        //Seta o valor do modal para full screen
         detailViewController.modalPresentationStyle = .fullScreen
+        //Chama o modal na tela
         self.present(detailViewController, animated: true, completion: nil)
     }
 }
