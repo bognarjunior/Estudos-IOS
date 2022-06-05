@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MatchViewController: UIViewController {
+class MatchViewController: UIViewController, UITextFieldDelegate {
     //Cria uma variável para receber os usuários
     var user: User? {
         //Verifica se ele foi setado
@@ -120,6 +120,9 @@ class MatchViewController: UIViewController {
         //Adiciona o gradiente a foto
         pictureImageView.layer.addSublayer(gradiente)
         
+        //Responsável por gerenciar o texto
+        messageText.delegate = self
+        
         //Centralizar o texto
         messageLabel.textAlignment = .center
         
@@ -144,6 +147,9 @@ class MatchViewController: UIViewController {
             bottom: messageText.bottomAnchor,
             padding: .init(top: 0, left: 0, bottom: 0, right: 16)
         )
+        
+        //Adiciona ação ao botão enviar
+        messageButton.addTarget(self, action: #selector(sendMessage), for: .touchUpInside)
         
         //Cria uma stackview para adicionar elementos na tela
         let stackView = UIStackView(arrangedSubviews: [likeImageView, messageLabel, messageText, backButton])
@@ -179,11 +185,13 @@ class MatchViewController: UIViewController {
                 UIView.animate(withDuration: duration) {
                     //Alterando o frame da view principal
                     self.view.frame = CGRect(
-                        x: self.view.frame.origin.x,
-                        y: self.view.frame.origin.x,
-                        width: self.view.frame.width,
-                        height: self.view.frame.height - keyboardSize.height
+                        x: UIScreen.main.bounds.origin.x,
+                        y: UIScreen.main.bounds.origin.x,
+                        width: UIScreen.main.bounds.width,
+                        height:UIScreen.main.bounds.height - keyboardSize.height
                     )
+                    
+                    
                     //Função para redefinir o layout
                     self.view.layoutIfNeeded()
                 }
@@ -202,6 +210,19 @@ class MatchViewController: UIViewController {
                 self.view.layoutIfNeeded()
             }
         }
+    }
+    
+    @objc func sendMessage() {
+        //Verifica se existe mensagem no input e adiciona na variável
+        if let message = self.messageText.text {
+            print(message)
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        //Chama a função de enviar mensagem 
+        self.sendMessage()
+        return true
     }
     
     //Subscrever a função responsável pelo toque na tela
