@@ -12,6 +12,7 @@ enum ACTION {
     case LIKE
     case SUPERLIKE
 }
+
 class CombineViewController: UIViewController {
     
     // Cria uma variável para atribuir os usuários
@@ -153,6 +154,12 @@ extension CombineViewController {
             card.user = user
             //Atribui para o identificador único do card o id do usuário
             card.tag = user.id
+            
+            //Adiciona a função de callback
+            card.callback = {(data) in
+                self.viewDetail(user: data)
+            }
+            
             //Centralixando o card
             card.center = view.center
             // Cria a função para reconhecer os gestos e passa a referencia para ela
@@ -174,6 +181,14 @@ extension CombineViewController {
         self.users = self.users.filter({(user) -> Bool in
             return user.id != card.tag
         })
+    }
+    
+    //Função para visializar o detalhe do usuário
+    func viewDetail(user: User) {
+        let detailViewController = UIViewController()
+        detailViewController.view.backgroundColor = .red
+        detailViewController.modalPresentationStyle = .fullScreen
+        self.present(detailViewController, animated: true, completion: nil)
     }
 }
 
