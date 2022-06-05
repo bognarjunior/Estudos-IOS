@@ -187,6 +187,8 @@ extension CombineViewController {
     func viewDetail(user: User) {
         //Atritui o modal
         let detailViewController = DetailViewController()
+        //Atribui usuário para o modal
+        detailViewController.user = user
         //Seta o valor do modal para full screen
         detailViewController.modalPresentationStyle = .fullScreen
         //Chama o modal na tela

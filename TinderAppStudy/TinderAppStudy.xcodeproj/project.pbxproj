@@ -21,6 +21,8 @@
 		7C1804E9284595A1001913D6 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1804E8284595A1001913D6 /* UserService.swift */; };
 		7C1804EB2846DFD9001913D6 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1804EA2846DFD9001913D6 /* UIImageView.swift */; };
 		7C1804ED28483353001913D6 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1804EC28483353001913D6 /* UIButton.swift */; };
+		7C822DBB284D413300AA37D0 /* DetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C822DBA284D413300AA37D0 /* DetailHeaderView.swift */; };
+		7C822DBD284D595400AA37D0 /* DetailPerfilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C822DBC284D595400AA37D0 /* DetailPerfilView.swift */; };
 		7CF9B8AE2849924A008ADA60 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF9B8AD2849924A008ADA60 /* LoadingView.swift */; };
 		7CF9B8B0284A910C008ADA60 /* MatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF9B8AF284A910C008ADA60 /* MatchViewController.swift */; };
 		7CF9B8B2284D1EF0008ADA60 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF9B8B1284D1EF0008ADA60 /* DetailViewController.swift */; };
@@ -43,6 +45,8 @@
 		7C1804E8284595A1001913D6 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		7C1804EA2846DFD9001913D6 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		7C1804EC28483353001913D6 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		7C822DBA284D413300AA37D0 /* DetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderView.swift; sourceTree = "<group>"; };
+		7C822DBC284D595400AA37D0 /* DetailPerfilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPerfilView.swift; sourceTree = "<group>"; };
 		7CF9B8AD2849924A008ADA60 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		7CF9B8AF284A910C008ADA60 /* MatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchViewController.swift; sourceTree = "<group>"; };
 		7CF9B8B1284D1EF0008ADA60 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +120,8 @@
 			children = (
 				7C1804E028445215001913D6 /* CombineCardView.swift */,
 				7CF9B8AD2849924A008ADA60 /* LoadingView.swift */,
+				7C822DBA284D413300AA37D0 /* DetailHeaderView.swift */,
+				7C822DBC284D595400AA37D0 /* DetailPerfilView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -229,9 +235,11 @@
 				7C1804E128445215001913D6 /* CombineCardView.swift in Sources */,
 				7C1804E7284592C6001913D6 /* User.swift in Sources */,
 				7C1804EB2846DFD9001913D6 /* UIImageView.swift in Sources */,
+				7C822DBD284D595400AA37D0 /* DetailPerfilView.swift in Sources */,
 				7C1804DF28440C07001913D6 /* CombineViewController.swift in Sources */,
 				7C1804ED28483353001913D6 /* UIButton.swift in Sources */,
 				7C1804E328445520001913D6 /* UIView.swift in Sources */,
+				7C822DBB284D413300AA37D0 /* DetailHeaderView.swift in Sources */,
 				7C1804C62843FEA0001913D6 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
