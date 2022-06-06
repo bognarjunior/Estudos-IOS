@@ -18,7 +18,7 @@ class DetailPhotoCarouselView: UICollectionViewCell {
         super.init(frame: frame)
         //Adiciona um texto para a descrição
         descriptionLabel.text = "Fotos recentes no instagram"
-        backgroundColor = .blue
+        
         //Adiciona o texto na view
         addSubview(descriptionLabel)
         descriptionLabel.fill(

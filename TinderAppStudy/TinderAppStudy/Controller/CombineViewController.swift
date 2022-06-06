@@ -18,12 +18,12 @@ class CombineViewController: UIViewController {
     // Cria uma variável para atribuir os usuários
     var users:[User] = []
     
-    //Crian do os botões do header
+    //Criando os botões do header
     var perfilButton: UIButton = .iconHeader(named: "icone-perfil")
     var logoButton: UIButton = .iconHeader(named: "icone-logo")
     var chatButton: UIButton = .iconHeader(named: "icone-chat")
     
-    //Crian do os botões do footer
+    //Criando os botões do footer
     var deslikeButton: UIButton = .iconFooter(named: "deslikeButton")
     var likeButton: UIButton = .iconFooter(named: "likeButton")
     var superLikeButton: UIButton = .iconFooter(named: "superLikeButton")
@@ -191,6 +191,21 @@ extension CombineViewController {
         detailViewController.user = user
         //Seta o valor do modal para full screen
         detailViewController.modalPresentationStyle = .fullScreen
+        
+        //Trata a ação de callback
+        detailViewController.callback = { (user, action) in
+            //Faz o tratamento para não travar a trad principal
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                //Testa para ver qual a opção recebida
+                if action == .DESLIKE {
+                    self.deslikeClick()
+                } else {
+                    self.likeClick()
+                }
+            }
+            
+        }
+        
         //Chama o modal na tela
         self.present(detailViewController, animated: true, completion: nil)
     }

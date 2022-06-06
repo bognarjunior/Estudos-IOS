@@ -55,6 +55,12 @@ class DetailViewController: UICollectionViewController, UICollectionViewDelegate
     let perfilId = "perfilId"
     let photoId = "photoId"
     
+    //Criando os botões do footer
+    var deslikeButton: UIButton = .iconFooter(named: "deslikeButton")
+    var likeButton: UIButton = .iconFooter(named: "likeButton")
+    
+    var callback: ((User?, ACTION) -> Void)?
+    
     init() {
         //Inicia o nosso layout, indicando que é na vertical
         super.init(collectionViewLayout: HeaderLayout())
@@ -68,8 +74,11 @@ class DetailViewController: UICollectionViewController, UICollectionViewDelegate
         //Ajusta para iniciar no topo
         collectionView.contentInsetAdjustmentBehavior = .never
         
+        //Adiciona padding na view
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 135, right: 0)
+        
         super.viewDidLoad()
-        collectionView.backgroundColor = .red
+        collectionView.backgroundColor = .white
         //Registrando o layout
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         //Registrando o Header
@@ -78,6 +87,9 @@ class DetailViewController: UICollectionViewController, UICollectionViewDelegate
         collectionView.register(DetailPefilView.self, forCellWithReuseIdentifier: perfilId)
         //Registrando o carrossel de fotos
         collectionView.register(DetailPhotoCarouselView.self, forCellWithReuseIdentifier: photoId)
+        
+        //Chama a função para adicionar o footer
+        self.addFooter()
     }
     
     //Retorna o número de células
@@ -105,7 +117,28 @@ class DetailViewController: UICollectionViewController, UICollectionViewDelegate
         header.user = self.user
         return header
     }
-
+    
+    func addFooter() {
+        let stackView = UIStackView(arrangedSubviews: [UIView(), deslikeButton, likeButton, UIView()])
+        //Centralizar os itens da stackView
+        stackView.distribution = .equalCentering
+        
+        //Adiciona a stackview dentro da view
+        view.addSubview(stackView)
+        stackView.fill(
+            top: nil,
+            leading: view.leadingAnchor,
+            trailing: view.trailingAnchor,
+            bottom: view.bottomAnchor,
+            padding: .init(top: 0, left: 16, bottom: 34, right: 16)
+        )
+        
+        
+        //Adicionando ação nos botões
+        deslikeButton.addTarget(self, action: #selector(deslikeClick), for: .touchUpInside)
+        likeButton.addTarget(self, action: #selector(likeClick), for: .touchUpInside)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return .init(width: view.bounds.width, height: view.bounds.height * 0.7)
     }
@@ -129,5 +162,22 @@ class DetailViewController: UICollectionViewController, UICollectionViewDelegate
         }
         
         return .init(width: width, height: height)
+    }
+    
+    //Função de deslike
+    @objc func deslikeClick() {
+        self.callback?(self.user, ACTION.DESLIKE)
+        self.closeModal()
+    }
+    
+    //Função de like
+    @objc func likeClick() {
+        self.callback?(self.user, ACTION.LIKE)
+        self.closeModal()
+    }
+    
+    //Função para voltar
+    @objc func closeModal() {
+        self.dismiss(animated: true, completion: nil)
     }
 }
