@@ -53,6 +53,7 @@ class DetailViewController: UICollectionViewController, UICollectionViewDelegate
     let cellId = "cellId"
     let headerId = "headerId"
     let perfilId = "perfilId"
+    let photoId = "photoId"
     
     init() {
         //Inicia o nosso layout, indicando que é na vertical
@@ -75,18 +76,27 @@ class DetailViewController: UICollectionViewController, UICollectionViewDelegate
         collectionView.register(DetailHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier:  headerId)
         //Registrando o perfil
         collectionView.register(DetailPefilView.self, forCellWithReuseIdentifier: perfilId)
+        //Registrando o carrossel de fotos
+        collectionView.register(DetailPhotoCarouselView.self, forCellWithReuseIdentifier: photoId)
     }
     
     //Retorna o número de células
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //Adiciona as células
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: perfilId, for: indexPath) as! DetailPefilView
-        cell.user = self.user
+        if indexPath.item == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: perfilId, for: indexPath) as! DetailPefilView
+            cell.user = self.user
+            return cell
+        }
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: photoId, for: indexPath) as! DetailPhotoCarouselView
+        //cell.user = self.user
         return cell
+        
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
