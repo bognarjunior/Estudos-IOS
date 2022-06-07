@@ -58,6 +58,19 @@ class DetailViewController: UICollectionViewController, UICollectionViewDelegate
     //Criando os botões do footer
     var deslikeButton: UIButton = .iconFooter(named: "deslikeButton")
     var likeButton: UIButton = .iconFooter(named: "likeButton")
+    var backButton: UIButton = {
+        //Cria a variável do botão
+        let button = UIButton()
+        //Seta imagem no botão
+        button.setImage(UIImage(named: "icone-down"), for: .normal)
+        //Atribui uma cor de fundo RGB
+        button.backgroundColor = UIColor(red: 232/255, green: 88/255, blue: 54/255, alpha: 1)
+        //Recorta a imagem se for maior que a view
+        button.clipsToBounds = true
+        //Retorna o botão tratado
+        return button
+    }()
+    
     
     var callback: ((User?, ACTION) -> Void)?
     
@@ -88,10 +101,31 @@ class DetailViewController: UICollectionViewController, UICollectionViewDelegate
         //Registrando o carrossel de fotos
         collectionView.register(DetailPhotoCarouselView.self, forCellWithReuseIdentifier: photoId)
         
+        //Chama a função para adicionar o botão voltar
+        self.addBackButton()
         //Chama a função para adicionar o footer
         self.addFooter()
     }
     
+    func addBackButton () {
+        
+        view.addSubview(backButton)
+        
+        print(collectionView.contentOffset)
+        //Altera o tamanho e a posição na tela
+        backButton.frame = CGRect(
+            x: view.bounds.width - 69,
+            y: view.bounds.height * 0.7 - 24,
+            width: 48,
+            height: 48
+        )
+        //Arredondando o botão
+        backButton.layer.cornerRadius = 28
+        
+        print(backButton.frame)
+        //Adicionando o click
+        backButton.addTarget(self, action: #selector(closeModal), for: .touchUpInside)
+    }
     //Retorna o número de células
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 2
@@ -179,5 +213,17 @@ class DetailViewController: UICollectionViewController, UICollectionViewDelegate
     //Função para voltar
     @objc func closeModal() {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        //Variável para pegar a posição atual
+        let originY = view.bounds.height * 0.7 - 24
+        
+        //Testa o scroll para atribuir na posição
+        if scrollView.contentOffset.y > 0 {
+            self.backButton.frame.origin.y = originY - scrollView.contentOffset.y
+        } else {
+            self.backButton.frame.origin.y = originY + scrollView.contentOffset.y * -1
+        }
     }
 }
