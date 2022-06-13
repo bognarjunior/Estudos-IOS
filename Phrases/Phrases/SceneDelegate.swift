@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  AgeDog
+//  Phrases
 //
-//  Created by José Roberto Bognar Junior on 07/06/22.
+//  Created by José Roberto Bognar Junior on 12/06/22.
 //
 
 import UIKit
