@@ -13,6 +13,7 @@
 		7CD2D4C5285CFDC600A790B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CD2D4C3285CFDC600A790B1 /* Main.storyboard */; };
 		7CD2D4C7285CFDC700A790B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CD2D4C6285CFDC700A790B1 /* Assets.xcassets */; };
 		7CD2D4CA285CFDC700A790B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CD2D4C8285CFDC700A790B1 /* LaunchScreen.storyboard */; };
+		7CD2D4D2285D60F000A790B1 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD2D4D1285D60F000A790B1 /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		7CD2D4C6285CFDC700A790B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7CD2D4C9285CFDC700A790B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7CD2D4CB285CFDC700A790B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7CD2D4D1285D60F000A790B1 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				7CD2D4BD285CFDC600A790B1 /* AppDelegate.swift */,
 				7CD2D4BF285CFDC600A790B1 /* SceneDelegate.swift */,
+				7CD2D4D1285D60F000A790B1 /* DetailsViewController.swift */,
 				7CD2D4C1285CFDC600A790B1 /* ViewController.swift */,
 				7CD2D4C3285CFDC600A790B1 /* Main.storyboard */,
 				7CD2D4C6285CFDC700A790B1 /* Assets.xcassets */,
@@ -141,6 +144,7 @@
 				7CD2D4C2285CFDC600A790B1 /* ViewController.swift in Sources */,
 				7CD2D4BE285CFDC600A790B1 /* AppDelegate.swift in Sources */,
 				7CD2D4C0285CFDC600A790B1 /* SceneDelegate.swift in Sources */,
+				7CD2D4D2285D60F000A790B1 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

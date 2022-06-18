@@ -26,7 +26,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="botao_jogar"/>
                                         <connections>
-                                            <segue destination="3LP-pw-t15" kind="show" id="pcf-eZ-fH8"/>
+                                            <segue destination="3LP-pw-t15" kind="show" identifier="goToCoin" id="pcf-eZ-fH8"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -45,10 +45,10 @@
             </objects>
             <point key="canvasLocation" x="937.68115942028987" y="93.75"/>
         </scene>
-        <!--View Controller-->
+        <!--Details View Controller-->
         <scene sceneID="hwe-nh-xnl">
             <objects>
-                <viewController id="3LP-pw-t15" sceneMemberID="viewController">
+                <viewController id="3LP-pw-t15" customClass="DetailsViewController" customModule="HeadOrTails" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zid-qE-MW7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -65,6 +65,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="tbv-Cb-Djk"/>
+                    <connections>
+                        <outlet property="imageCoin" destination="11T-gm-XyH" id="pVv-LS-LLa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eRf-Sh-Bce" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
