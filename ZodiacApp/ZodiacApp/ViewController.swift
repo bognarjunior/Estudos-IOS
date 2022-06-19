@@ -56,5 +56,16 @@ class ViewController: UITableViewController {
         cell.textLabel?.text = self.sings[indexPath.row]
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let alertController = UIAlertController(title: self.sings[indexPath.row], message: self.meanings[indexPath.row], preferredStyle: .alert)
+        
+        let actionConfirm = UIAlertAction(title: "Confirmar", style: .default)
+        
+        alertController.addAction(actionConfirm)
+        
+        present(alertController, animated: true)
+    }
 }
 
