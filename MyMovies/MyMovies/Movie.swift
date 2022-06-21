@@ -12,8 +12,9 @@ class Movie {
     var description: String!
     var image: UIImage!
     
-    init(title: String, description: String) {
+    init(title: String, description: String, image: String) {
         self.title = title
         self.description = description
+        self.image = UIImage(named: image)
     }
 }

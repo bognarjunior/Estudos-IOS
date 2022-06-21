@@ -14,12 +14,28 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         var movie: Movie
-        movie = Movie(title: "Filme 1", description: "Descrição 1")
+        movie = Movie(title: "007 - Spectre", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sagittis est in dui luctus vestibulum. Curabitur mattis, sem sit amet.", image: "filme1")
         movies.append(movie)
-        movie = Movie(title: "Filme 2", description: "Descrição 2")
+        movie = Movie(title: "Star Wars", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sagittis est in dui luctus vestibulum. Curabitur mattis, sem sit amet.", image: "filme2")
+        movies.append(movie)
+        movie = Movie(title: "Impacto Mortal", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sagittis est in dui luctus vestibulum. Curabitur mattis, sem sit amet.", image: "filme3")
+        movies.append(movie)
+        movie = Movie(title: "Deadpool", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sagittis est in dui luctus vestibulum. Curabitur mattis, sem sit amet.", image: "filme4")
+        movies.append(movie)
+        movie = Movie(title: "O Regresso", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sagittis est in dui luctus vestibulum. Curabitur mattis, sem sit amet.", image: "filme5")
+        movies.append(movie)
+        movie = Movie(title: "A Herdeira", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sagittis est in dui luctus vestibulum. Curabitur mattis, sem sit amet.", image: "filme6")
+        movies.append(movie)
+        movie = Movie(title: "Caçadores de emoção", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sagittis est in dui luctus vestibulum. Curabitur mattis, sem sit amet.", image: "filme7")
+        movies.append(movie)
+        movie = Movie(title: "Regresso do mal", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sagittis est in dui luctus vestibulum. Curabitur mattis, sem sit amet.", image: "filme8")
+        movies.append(movie)
+        movie = Movie(title: "Tarzan", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sagittis est in dui luctus vestibulum. Curabitur mattis, sem sit amet.", image: "filme9")
+        movies.append(movie)
+        movie = Movie(title: "Hardcore: Missão Extrema", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sagittis est in dui luctus vestibulum. Curabitur mattis, sem sit amet.", image: "filme10")
         movies.append(movie)
     }
-    
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -32,6 +48,7 @@ class ViewController: UITableViewController {
         let movie = self.movies[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         cell.textLabel?.text = movie.title
+        cell.imageView?.image = movie.image
         return cell
     }
 }
