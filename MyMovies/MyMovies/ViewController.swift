@@ -50,6 +50,8 @@ class ViewController: UITableViewController {
         cell.titleLabel.text = movie.title
         cell.descriptionLabel.text = movie.description
         cell.pictureImageView.image = movie.image
+        cell.pictureImageView.layer.cornerRadius = 42
+        cell.pictureImageView.clipsToBounds = true
         return cell
     }
 }
