@@ -54,5 +54,15 @@ class ViewController: UITableViewController {
         cell.pictureImageView.clipsToBounds = true
         return cell
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailSegue" {
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                let movie = self.movies[indexPath.row]
+                let DetailMoviesViewController = segue.destination as! DetailMoviesViewController
+                DetailMoviesViewController.movie = movie
+            }
+        }
+    }
 }
 
