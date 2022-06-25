@@ -31,6 +31,13 @@ class ViewController: UIViewController {
         txtNotes.text = getNote()
     }
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
 
 }
 
