@@ -33,6 +33,9 @@
                                         <rect key="frame" x="0.0" y="205" width="346" height="52"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="botao_salvar"/>
+                                        <connections>
+                                            <action selector="saveNotes:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1MT-wZ-5Zi"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -53,6 +56,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Notes" id="cRv-li-uuk"/>
+                    <connections>
+                        <outlet property="txtNotes" destination="VaE-8f-caF" id="to1-V0-RMC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
