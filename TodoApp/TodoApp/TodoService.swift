@@ -16,11 +16,16 @@ class TodoService {
         todos.append(todo)
         
         UserDefaults.standard.set(todos, forKey: TODOKEY)
-        print(self.getTodo())
     }
     
     func getTodo() -> Array<String> {
         let data = UserDefaults.standard.object(forKey: TODOKEY)
         return (data != nil) ? data as! Array<String> : []
+    }
+    
+    func remove(index: Int) {
+        todos = self.getTodo()
+        todos.remove(at: index)
+        UserDefaults.standard.set(todos, forKey: TODOKEY)
     }
 }
