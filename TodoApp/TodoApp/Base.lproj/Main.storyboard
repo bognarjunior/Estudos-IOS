@@ -11,7 +11,7 @@
         <!--Lista de Tarefas-->
         <scene sceneID="OAL-dN-mvK">
             <objects>
-                <tableViewController id="r69-Q0-yqQ" customClass="ViewController" customModule="TodoApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="r69-Q0-yqQ" customClass="TodoTableViewController" customModule="TodoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Yb1-ST-jQS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,10 +44,10 @@
             </objects>
             <point key="canvasLocation" x="270" y="13"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Todo View Controller-->
         <scene sceneID="09g-tP-cp8">
             <objects>
-                <viewController id="cD4-Uv-UDq" sceneMemberID="viewController">
+                <viewController id="cD4-Uv-UDq" customClass="AddTodoViewController" customModule="TodoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BFv-qp-w0b">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,6 +67,9 @@
                                 <rect key="frame" x="164.5" y="179.5" width="85" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Adicionar"/>
+                                <connections>
+                                    <action selector="addTodo:" destination="cD4-Uv-UDq" eventType="touchUpInside" id="Hlv-TH-SMy"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7Tx-tC-5Af"/>
@@ -82,6 +85,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="OkY-dD-xa2"/>
+                    <connections>
+                        <outlet property="txtTodo" destination="hg0-rO-FHP" id="kUS-8s-5ut"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NjG-ID-jFF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
