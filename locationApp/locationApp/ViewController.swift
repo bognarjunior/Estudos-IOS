@@ -11,6 +11,11 @@ import MapKit
 class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var labelSpeed: UILabel!
+    @IBOutlet weak var labelLat: UILabel!
+    @IBOutlet weak var labelLong: UILabel!
+    @IBOutlet weak var labelAddress: UILabel!
+    
     var locationManager = CLLocationManager()
     
     override func viewDidLoad() {
@@ -20,6 +25,15 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let userLocation = locations.last!
+        let latitude = userLocation.coordinate.latitude
+        let longitude = userLocation.coordinate.longitude
+        labelLong.text = "\(longitude )"
+        labelLat.text = "\(latitude )"
+        labelSpeed.text = "\(userLocation.speed )"
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
