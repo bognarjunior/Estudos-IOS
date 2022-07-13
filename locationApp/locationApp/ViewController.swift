@@ -43,6 +43,43 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         let area: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: deltaLat, longitudeDelta: deltaLon)
         let region: MKCoordinateRegion = MKCoordinateRegion(center: location, span: area)
         mapView.setRegion(region, animated: true)
+        
+        CLGeocoder().reverseGeocodeLocation(userLocation) { localDetail, error in
+            if error == nil {
+                if let data = localDetail?.first {
+                    var thoroughfare = ""
+                    if data.thoroughfare != nil {
+                        thoroughfare = data.thoroughfare!
+                    }
+                    
+                    var subThoroughfare = ""
+                    if data.subThoroughfare != nil {
+                        subThoroughfare = data.subThoroughfare!
+                    }
+                    
+                    var locality = ""
+                    if data.locality != nil {
+                        locality = data.locality!
+                    }
+                    
+                    var postalCode = ""
+                    if data.postalCode != nil {
+                        postalCode = data.postalCode!
+                    }
+                    
+                    var country = ""
+                    if data.country != nil {
+                        country = data.country!
+                    }
+                    
+                    self.labelAddress.text = thoroughfare + " - "
+                                              + subThoroughfare + " / "
+                                              + locality + " / "
+                                              + country
+                }
+                
+            }
+        }
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
