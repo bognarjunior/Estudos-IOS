@@ -34,6 +34,15 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         labelLong.text = "\(longitude )"
         labelLat.text = "\(latitude )"
         labelSpeed.text = "\(userLocation.speed )"
+        
+        let deltaLat: CLLocationDegrees = 0.01
+        let deltaLon: CLLocationDegrees = 0.01
+        
+        let location: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        
+        let area: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: deltaLat, longitudeDelta: deltaLon)
+        let region: MKCoordinateRegion = MKCoordinateRegion(center: location, span: area)
+        mapView.setRegion(region, animated: true)
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
