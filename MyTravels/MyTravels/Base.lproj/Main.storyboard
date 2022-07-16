@@ -11,13 +11,13 @@
         <!--My Travels-->
         <scene sceneID="UYd-Tf-fjG">
             <objects>
-                <tableViewController id="2H2-Bh-2cK" sceneMemberID="viewController">
+                <tableViewController id="2H2-Bh-2cK" customClass="MyTravelsTableViewController" customModule="MyTravels" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="0Dx-8E-4Wg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ZGB-7I-MYs">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellId" id="ZGB-7I-MYs">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZGB-7I-MYs" id="WRr-qX-3J0">
@@ -47,7 +47,7 @@
         <!--Mapa-->
         <scene sceneID="ayt-yz-4Ok">
             <objects>
-                <viewController title="Mapa" id="KGv-Zd-kAI" sceneMemberID="viewController">
+                <viewController title="Mapa" id="KGv-Zd-kAI" customClass="ViewController" customModule="MyTravels" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pgR-xj-yid">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -13,6 +13,7 @@
 		7CC493DD287FA26D008A6784 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CC493DB287FA26D008A6784 /* Main.storyboard */; };
 		7CC493DF287FA26F008A6784 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CC493DE287FA26F008A6784 /* Assets.xcassets */; };
 		7CC493E2287FA26F008A6784 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CC493E0287FA26F008A6784 /* LaunchScreen.storyboard */; };
+		7CC493EA2883697A008A6784 /* MyTravelsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC493E92883697A008A6784 /* MyTravelsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		7CC493DE287FA26F008A6784 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7CC493E1287FA26F008A6784 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7CC493E3287FA26F008A6784 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7CC493E92883697A008A6784 /* MyTravelsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTravelsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				7CC493D7287FA26D008A6784 /* SceneDelegate.swift */,
 				7CC493D9287FA26D008A6784 /* ViewController.swift */,
 				7CC493DB287FA26D008A6784 /* Main.storyboard */,
+				7CC493E92883697A008A6784 /* MyTravelsTableViewController.swift */,
 				7CC493DE287FA26F008A6784 /* Assets.xcassets */,
 				7CC493E0287FA26F008A6784 /* LaunchScreen.storyboard */,
 				7CC493E3287FA26F008A6784 /* Info.plist */,
@@ -141,6 +144,7 @@
 				7CC493DA287FA26D008A6784 /* ViewController.swift in Sources */,
 				7CC493D6287FA26D008A6784 /* AppDelegate.swift in Sources */,
 				7CC493D8287FA26D008A6784 /* SceneDelegate.swift in Sources */,
+				7CC493EA2883697A008A6784 /* MyTravelsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
