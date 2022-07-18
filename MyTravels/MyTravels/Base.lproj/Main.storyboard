@@ -67,7 +67,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Mapa" id="bjv-fK-GdW"/>
                     <connections>
-                        <outlet property="MapView" destination="YmC-BA-76a" id="eoy-8c-AYX"/>
+                        <outlet property="mapView" destination="YmC-BA-76a" id="qdT-PP-AGD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QzG-9p-8vT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
