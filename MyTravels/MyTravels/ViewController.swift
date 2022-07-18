@@ -27,14 +27,14 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     @objc func markMap(gesture:UIGestureRecognizer) {
         if gesture.state == UIGestureRecognizer.State.began {
             let selectedPoint = gesture.location(in: self.mapView)
-            let coordinates = self.mapView.convert(selectedPoint, from: self.mapView)
-
+            let coordinates = self.mapView.convert(selectedPoint, toCoordinateFrom: self.mapView)
+           
             let annotation = MKPointAnnotation()
-            annotation.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(coordinates.x), longitude: CLLocationDegrees(coordinates.y))
+            annotation.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(coordinates.latitude), longitude: CLLocationDegrees(coordinates.longitude))
             annotation.title = "Pressionado"
             annotation.subtitle = "Aqui"
-
-            self.mapView.addAnnotation(annotation)
+            
+            mapView.addAnnotation(annotation)
         }
     }
     
