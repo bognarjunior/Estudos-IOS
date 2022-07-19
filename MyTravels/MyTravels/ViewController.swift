@@ -29,12 +29,25 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             let selectedPoint = gesture.location(in: self.mapView)
             let coordinates = self.mapView.convert(selectedPoint, toCoordinateFrom: self.mapView)
            
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(coordinates.latitude), longitude: CLLocationDegrees(coordinates.longitude))
-            annotation.title = "Pressionado"
-            annotation.subtitle = "Aqui"
-            
-            mapView.addAnnotation(annotation)
+            var localAddress = "Endereço não encontrado"
+            let location: CLLocation = CLLocation(latitude: coordinates.latitude, longitude: coordinates.longitude)
+            CLGeocoder().reverseGeocodeLocation(location) { localDetail, error in
+                if error == nil {
+                    if let data = localDetail?.first {
+                        if let name = data.name {
+                            localAddress = name
+                        } else {
+                            if data.thoroughfare != nil {
+                                localAddress = data.thoroughfare!
+                            }
+                        }
+                    }
+                    let annotation = MKPointAnnotation()
+                    annotation.coordinate = CLLocationCoordinate2D(latitude: coordinates.latitude, longitude: coordinates.longitude)
+                    annotation.title = localAddress
+                    self.mapView.addAnnotation(annotation)
+                }
+            }
         }
     }
     
