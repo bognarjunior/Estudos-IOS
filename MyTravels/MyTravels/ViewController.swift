@@ -13,6 +13,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     @IBOutlet weak var mapView: MKMapView!
     var locationManager = CLLocationManager()
+    var travel: Dictionary<String, String> = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,10 +43,18 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                             }
                         }
                     }
+                    
                     let annotation = MKPointAnnotation()
                     annotation.coordinate = CLLocationCoordinate2D(latitude: coordinates.latitude, longitude: coordinates.longitude)
                     annotation.title = localAddress
+                    
                     self.mapView.addAnnotation(annotation)
+                    
+                    self.travel = ["location":localAddress,
+                                   "latitude": String(coordinates.latitude),
+                                   "longitude": String(coordinates.longitude)]
+                    Store().addTravel(travel: self.travel)
+                    print("Print",Store().getTravels())
                 }
             }
         }
