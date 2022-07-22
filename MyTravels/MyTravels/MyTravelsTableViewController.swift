@@ -13,7 +13,7 @@ class MyTravelsTableViewController: UITableViewController {
     var cellId = "cellId"
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("Print",Store().getTravels())
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
