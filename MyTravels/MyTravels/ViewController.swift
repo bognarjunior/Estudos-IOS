@@ -43,7 +43,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     }
     
     func showNote(travel: Dictionary<String, String>) {
-        print("aqui")
         if let travelLocation = travel["location"] {
             if let latitude = travel["latitude"] {
                 if let longitude = travel["longitude"] {
@@ -61,8 +60,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     }
     
     func showLocation( latitude: Double, longitude: Double ){
-        
-        //exibe local
         let location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         
@@ -126,7 +123,10 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     }
         
     func configAlert() {
-        let alertController = UIAlertController(title: "Permissão de localização", message: "É necessária a permissão de localização para o app funcionar", preferredStyle: .alert)
+        let alertController = UIAlertController(
+            title: "Permissão de localização",
+            message: "É necessária a permissão de localização para o app funcionar",
+            preferredStyle: .alert)
 
         let configAction = UIAlertAction(title: "Abrir configurações", style: .default, handler: { (alertConfig) in
             if let config = NSURL(string: UIApplicationOpenNotificationSettingsURLString) {
@@ -138,7 +138,6 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         
         alertController.addAction(configAction)
         alertController.addAction(cancelAction)
-        
         present(alertController, animated: true)
     }
 }

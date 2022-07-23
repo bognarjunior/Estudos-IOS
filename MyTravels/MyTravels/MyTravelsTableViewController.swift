@@ -12,6 +12,7 @@ class MyTravelsTableViewController: UITableViewController {
     var travelLocations: [Dictionary<String, String>] = []
     var cellId = "cellId"
     var navigation = "add"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
