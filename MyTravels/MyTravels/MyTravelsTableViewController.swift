@@ -9,18 +9,16 @@ import UIKit
 
 class MyTravelsTableViewController: UITableViewController {
 
-    var travelLocations: [String] = ["Ibirapuera", "Torre Eiffel", "Coliseu"]
+    var travelLocations: [Dictionary<String, String>] = []
     var cellId = "cellId"
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Print",Store().getTravels())
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        self.updateTravels()
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -34,7 +32,7 @@ class MyTravelsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let travel = travelLocations[indexPath.row]
+        let travel = travelLocations[indexPath.row]["location"]
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
 
         // Configure the cell...
@@ -50,18 +48,19 @@ class MyTravelsTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            Store().removeTravel(index: indexPath.row)
+            self.updateTravels()
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
 
+    func updateTravels() {
+        travelLocations = Store().getTravels()
+        tableView.reloadData()
+    }
     /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {

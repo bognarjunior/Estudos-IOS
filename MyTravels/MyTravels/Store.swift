@@ -30,7 +30,10 @@ class Store{
         return []
     }
     
-    func removeTravel() {
-        
+    func removeTravel(index: Int) {
+        travels = self.getTravels()
+        travels.remove(at: index)
+        self.getDefauls().set(travels, forKey: self.KEY)
+        self.getDefauls().synchronize()
     }
 }
