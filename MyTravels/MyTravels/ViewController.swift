@@ -14,14 +14,61 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     @IBOutlet weak var mapView: MKMapView!
     var locationManager = CLLocationManager()
     var travel: Dictionary<String, String> = [:]
+    var selected: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        self.configLocationManager()
+        if let index = self.selected {
+            if index == -1 {
+                self.configLocationManager()
+            } else {
+                self.showNote(travel: travel)
+            }
+        }
         let pressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.markMap))
         pressGesture.minimumPressDuration = 2
         mapView.addGestureRecognizer(pressGesture)
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations.last!
+        
+        //exibe local
+        let localization = CLLocationCoordinate2D(latitude: location.coordinate.latitude , longitude: location.coordinate.longitude)
+        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        
+        let region: MKCoordinateRegion = MKCoordinateRegion(center: localization, span: span)
+        self.mapView.setRegion(region, animated: true)
+    }
+    
+    func showNote(travel: Dictionary<String, String>) {
+        print("aqui")
+        if let travelLocation = travel["location"] {
+            if let latitude = travel["latitude"] {
+                if let longitude = travel["longitude"] {
+                    let annotation = MKPointAnnotation()
+                    annotation.coordinate = CLLocationCoordinate2D(
+                        latitude: Double(latitude)!,
+                        longitude: Double(longitude)!
+                    )
+                    annotation.title = travelLocation
+                    self.mapView.addAnnotation(annotation)
+                    self.showLocation(latitude: Double(latitude)!, longitude: Double(longitude)!)
+                }
+            }
+        }
+    }
+    
+    func showLocation( latitude: Double, longitude: Double ){
+        
+        //exibe local
+        let location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        
+        let region: MKCoordinateRegion = MKCoordinateRegion(center: location, span: span)
+        print(region)
+        self.mapView.setRegion(region, animated: true)
         
     }
     
@@ -44,17 +91,13 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
                         }
                     }
                     
-                    let annotation = MKPointAnnotation()
-                    annotation.coordinate = CLLocationCoordinate2D(latitude: coordinates.latitude, longitude: coordinates.longitude)
-                    annotation.title = localAddress
-                    
-                    self.mapView.addAnnotation(annotation)
-                    
                     self.travel = ["location":localAddress,
                                    "latitude": String(coordinates.latitude),
                                    "longitude": String(coordinates.longitude)]
+                    
+                    self.showNote(travel: self.travel)
+                    
                     Store().addTravel(travel: self.travel)
-                    print("Print",Store().getTravels())
                 }
             }
         }

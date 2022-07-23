@@ -11,11 +11,13 @@ class MyTravelsTableViewController: UITableViewController {
 
     var travelLocations: [Dictionary<String, String>] = []
     var cellId = "cellId"
+    var navigation = "add"
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
     override func viewDidAppear(_ animated: Bool) {
+        self.navigation = "add"
         self.updateTravels()
     }
     
@@ -61,6 +63,8 @@ class MyTravelsTableViewController: UITableViewController {
         travelLocations = Store().getTravels()
         tableView.reloadData()
     }
+    
+   
     /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
@@ -76,14 +80,27 @@ class MyTravelsTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.navigation = "list"
+        performSegue(withIdentifier: "toMap", sender: indexPath.row)
     }
-    */
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toMap" {
+            let destinationController = segue.destination as! ViewController
+            if self.navigation == "list" {
+                if let indexRecovered = sender {
+                    let index = indexRecovered as! Int
+                    destinationController.travel = self.travelLocations[index]
+                    destinationController.selected = index
+                }
+            } else {
+                destinationController.travel = [:]
+                destinationController.selected = -1
+            }
+        }
+    }
 }

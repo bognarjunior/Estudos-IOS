@@ -35,7 +35,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="exA-R7-c71">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="KGv-Zd-kAI" kind="show" id="v1X-CT-lUj"/>
+                                <segue destination="KGv-Zd-kAI" kind="show" identifier="toMap" id="v1X-CT-lUj"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
